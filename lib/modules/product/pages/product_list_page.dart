@@ -261,7 +261,7 @@ class ProductListPage extends StatelessWidget {
                               vertical: 20.5,
                             ),
                             gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 3,
                               crossAxisSpacing: 15,
                               mainAxisExtent: 200,

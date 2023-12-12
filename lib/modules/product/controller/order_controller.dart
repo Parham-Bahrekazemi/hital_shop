@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:hital_shop/backend/models/address_model.dart';
 import 'package:hital_shop/backend/repository/product_repository.dart';
@@ -7,6 +8,8 @@ import 'package:hital_shop/modules/product/controller/cart_controller.dart';
 import 'package:hital_shop/modules/product/pages/payment_page.dart';
 import 'package:hital_shop/modules/product/widgets/radio_widget.dart';
 import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class OrderController extends GetxController {
   ProfileRespository respository = ProfileRespository();
@@ -65,9 +68,14 @@ class OrderController extends GetxController {
     );
     paymnetLoding = false;
     update();
-    Get.to(PaymentPage(
-      link: link,
-    ));
+
+    if (kIsWeb) {
+      await launchUrlString(link, webOnlyWindowName: '_self');
+    } else {
+      Get.to(PaymentPage(
+        link: link,
+      ));
+    }
   }
 
   @override

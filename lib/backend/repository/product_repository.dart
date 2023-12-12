@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:hital_shop/backend/models/product_model.dart';
 import 'package:hital_shop/backend/repository/base_repository.dart';
 import 'package:hital_shop/backend/response/cart_response.dart';
@@ -119,6 +120,7 @@ class ProductRepository extends BaseRepsitory {
       data: {
         'address_id': addressId,
         'shipping_method': shippingMethod,
+        if (kIsWeb) 'platform': 'web'
       },
     );
 
