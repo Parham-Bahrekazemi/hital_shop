@@ -88,8 +88,7 @@ class RegisterController extends GetxController {
           ),
         );
 
-        update();
-        Get.off(const HomePage());
+        Get.to(const HomePage());
       }
 
       loading = false;

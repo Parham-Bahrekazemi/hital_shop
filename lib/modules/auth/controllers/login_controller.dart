@@ -51,7 +51,7 @@ class LoginController extends GetxController {
             sharedPreferences!.getString('token'),
           ),
         );
-        Get.off(const HomePage());
+        Get.to(const HomePage());
       }
       loading = false;
       update();
