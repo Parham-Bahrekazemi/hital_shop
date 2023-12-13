@@ -4,17 +4,10 @@ import 'package:get/get.dart';
 import 'package:hital_shop/helpers/scroll_hhelper.dart';
 import 'package:hital_shop/helpers/theme_helper.dart';
 import 'package:hital_shop/modules/auth/pages/splash_page.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MainWidget());
-}
-
-SharedPreferences? sharedPreferences;
-
-Future<void> initShared() async {
-  sharedPreferences = await SharedPreferences.getInstance();
 }
 
 class MainWidget extends StatelessWidget {
@@ -22,7 +15,6 @@ class MainWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    initShared();
     return GetBuilder<ThemeHelper>(
       init: ThemeHelper(),
       builder: (ThemeHelper controller) {
